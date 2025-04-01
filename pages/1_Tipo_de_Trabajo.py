@@ -33,6 +33,3 @@ habilidad_puesto_slider_value = st.slider('Nivel de Habilidad Requerida', 0, 100
 st.markdown(f"**{obtener_desc(descripciones['Nivel de Habilidad Requerida'], habilidad_puesto_slider_value)}**")
 st.session_state['Nivel de Habilidad Requerida'] = habilidad_puesto_slider_value
 
-value = st.slider('Nivel de Habilidad Requerida', 0, 100, 50, key='Nivel de Habilidad Requerida')
-st.markdown(f"**{obtener_desc(descripciones['Nivel de Habilidad Requerida'], value)}**")
-st.session_state['Nivel de Habilidad Requerida'] = value

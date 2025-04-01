@@ -25,10 +25,13 @@ descripciones = {
     },
 }
 
-# Sliders y descripciones
-value = st.slider('Nivel de Reto del Puesto', 0, 100, 50, key='Nivel de Reto del Puesto')
-st.markdown(f"**{obtener_desc(descripciones['Nivel de Reto del Puesto'], value)}**")
-st.session_state['Nivel de Reto del Puesto'] = value
+reto_puesto_slider_value = st.slider('Nivel de Reto del Puesto', 0, 100, 50, key='reto_puesto_slider')
+st.markdown(f"**{obtener_desc(descripciones['Nivel de Reto del Puesto'], reto_puesto_slider_value)}**")
+st.session_state['Nivel de Reto del Puesto'] = reto_puesto_slider_value
+
+habilidad_puesto_slider_value = st.slider('Nivel de Habilidad Requerida', 0, 100, 50, key='habilidad_puesto_slider')
+st.markdown(f"**{obtener_desc(descripciones['Nivel de Habilidad Requerida'], habilidad_puesto_slider_value)}**")
+st.session_state['Nivel de Habilidad Requerida'] = habilidad_puesto_slider_value
 
 value = st.slider('Nivel de Habilidad Requerida', 0, 100, 50, key='Nivel de Habilidad Requerida')
 st.markdown(f"**{obtener_desc(descripciones['Nivel de Habilidad Requerida'], value)}**")

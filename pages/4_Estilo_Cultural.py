@@ -25,11 +25,10 @@ descripciones = {
     },
 }
 
-# Sliders y descripciones
-value = st.slider('Estabilidad vs. Cambio', 0, 100, 50, key='Estabilidad vs. Cambio')
-st.markdown(f"**{obtener_desc(descripciones['Estabilidad vs. Cambio'], value)}**")
-st.session_state['Estabilidad vs. Cambio'] = value
+estabilidad_cambio_slider_value = st.slider('Estabilidad vs. Cambio', 0, 100, 50, key='estabilidad_cambio_slider')
+st.markdown(f"**{obtener_desc(descripciones['Estabilidad vs. Cambio'], estabilidad_cambio_slider_value)}**")
+st.session_state['Estabilidad vs. Cambio'] = estabilidad_cambio_slider_value
 
-value = st.slider('Independencia vs. Interdependencia', 0, 100, 50, key='Independencia vs. Interdependencia')
-st.markdown(f"**{obtener_desc(descripciones['Independencia vs. Interdependencia'], value)}**")
-st.session_state['Independencia vs. Interdependencia'] = value
+independencia_interdep_slider_value = st.slider('Independencia vs. Interdependencia', 0, 100, 50, key='independencia_interdep_slider')
+st.markdown(f"**{obtener_desc(descripciones['Independencia vs. Interdependencia'], independencia_interdep_slider_value)}**")
+st.session_state['Independencia vs. Interdependencia'] = independencia_interdep_slider_value

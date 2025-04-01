@@ -1,39 +1,21 @@
 import streamlit as st
-import plotly.graph_objects as go
+import pandas as pd
 
-st.title("Resumen Interactivo de tu Perfil")
+st.title("Resumen de tus respuestas")
 
-# Recolectar los valores guardados
-valores = {}
-for key in st.session_state:
-    valores[key] = st.session_state[key]
+# Mostrar todo el contenido de session_state
+if st.session_state:
+    st.subheader("🔍 Contenido completo de session_state")
+    st.json(st.session_state)
 
-if len(valores) >= 3:
-    # Selección arbitraria de 3 dimensiones para visualización 3D
-    keys = list(valores.keys())
-    x = valores[keys[0]]
-    y = valores[keys[1]]
-    z = valores[keys[2]]
+    # Filtrar valores numéricos solamente
+    valores = {key: st.session_state[key] for key in st.session_state if isinstance(st.session_state[key], int)}
 
-    fig = go.Figure()
-    fig.add_trace(go.Scatter3d(
-        x=[x], y=[y], z=[z],
-        mode='markers+text',
-        marker=dict(size=10, color='orange'),
-        text=["Tu Perfil"],
-        name="Tu Perfil"
-    ))
-
-    fig.update_layout(
-        scene=dict(
-            xaxis_title=keys[0],
-            yaxis_title=keys[1],
-            zaxis_title=keys[2]
-        ),
-        width=800,
-        height=600
-    )
-
-    st.plotly_chart(fig)
+    if valores:
+        st.subheader("📊 Valores seleccionados")
+        df = pd.DataFrame(list(valores.items()), columns=["Parámetro", "Valor"])
+        st.table(df.sort_values("Parámetro"))
+    else:
+        st.warning("No se encontraron valores numéricos aún.")
 else:
-    st.warning("Aún no se han completado suficientes secciones para generar el resumen.")
+    st.info("session_state está vacío. Asegúrate de haber navegado por las secciones anteriores.")

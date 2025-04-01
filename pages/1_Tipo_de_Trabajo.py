@@ -3,7 +3,7 @@ import streamlit as st
 st.title('1. Tipo de Trabajo')
 
 st.markdown('### Nivel de Reto del Puesto')
-reto_puesto_slider_val = st.slider('', step=20, label_visibility='collapsed', key='reto_puesto_slider')
+reto_puesto_slider_val = st.slider('', step=10, label_visibility='collapsed', key='reto_puesto_slider')
 st.session_state['Nivel de Reto del Puesto'] = reto_puesto_slider_val
 cols = st.columns(5)
 with cols[0]:
@@ -18,7 +18,7 @@ with cols[4]:
     st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Desafíos constantes, situaciones nuevas y complejas.</div>''', unsafe_allow_html=True)
 
 st.markdown('### Nivel de Habilidad Requerida')
-habilidad_puesto_slider_val = st.slider('', 0, 100, 50, step=25, label_visibility='collapsed', key='habilidad_puesto_slider')
+habilidad_puesto_slider_val = st.slider('', 0, 100, 50, step=10, label_visibility='collapsed', key='habilidad_puesto_slider')
 st.session_state['Nivel de Habilidad Requerida'] = habilidad_puesto_slider_val
 cols = st.columns(5)
 with cols[0]:

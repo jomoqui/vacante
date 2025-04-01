@@ -25,11 +25,11 @@ descripciones = {
     },
 }
 
-# Sliders y descripciones
-value = st.slider('Nivel de Reto del Entorno', 0, 100, 50, key='Nivel de Reto del Entorno')
-st.markdown(f"**{obtener_desc(descripciones['Nivel de Reto del Entorno'], value)}**")
-st.session_state['Nivel de Reto del Entorno'] = value
+reto_entorno_slider_value = st.slider('Nivel de Reto del Entorno', 0, 100, 50, key='reto_entorno_slider')
+st.markdown(f"**{obtener_desc(descripciones['Nivel de Reto del Entorno'], reto_entorno_slider_value)}**")
+st.session_state['Nivel de Reto del Entorno'] = reto_entorno_slider_value
 
-value = st.slider('Nivel de Habilidad para Manejar Presión', 0, 100, 50, key='Nivel de Habilidad para Manejar Presión')
-st.markdown(f"**{obtener_desc(descripciones['Nivel de Habilidad para Manejar Presión'], value)}**")
-st.session_state['Nivel de Habilidad para Manejar Presión'] = value
+habilidad_presion_slider_value = st.slider('Nivel de Habilidad para Manejar Presión', 0, 100, 50, key='habilidad_presion_slider')
+st.markdown(f"**{obtener_desc(descripciones['Nivel de Habilidad para Manejar Presión'], habilidad_presion_slider_value)}**")
+st.session_state['Nivel de Habilidad para Manejar Presión'] = habilidad_presion_slider_value
+

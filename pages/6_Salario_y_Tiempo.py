@@ -3,7 +3,7 @@ import streamlit as st
 st.title('6. Salario y Tiempo')
 
 st.markdown('### Preferencia Salarial')
-preferencia_salarial_slider_val = st.slider('', 0, 100, 50, step=10, label_visibility='collapsed', key='preferencia_salarial_slider')
+preferencia_salarial_slider_val = st.slider('', 0, 100, 50, step=5, label_visibility='collapsed', key='preferencia_salarial_slider')
 st.session_state['Preferencia Salarial'] = preferencia_salarial_slider_val
 cols = st.columns(5)
 with cols[0]:
@@ -18,7 +18,7 @@ with cols[4]:
     st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">El salario es clave, espera una retribución alta y constante.</div>''', unsafe_allow_html=True)
 
 st.markdown('### Gestión del Tiempo')
-gestion_tiempo_slider_val = st.slider('', 0, 100, 50, step=10, label_visibility='collapsed', key='gestion_tiempo_slider')
+gestion_tiempo_slider_val = st.slider('', 0, 100, 50, step=5, label_visibility='collapsed', key='gestion_tiempo_slider')
 st.session_state['Gestión del Tiempo'] = gestion_tiempo_slider_val
 cols = st.columns(5)
 with cols[0]:

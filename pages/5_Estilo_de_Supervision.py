@@ -3,7 +3,7 @@ import streamlit as st
 st.title('5. Estilo de Supervisión')
 
 st.markdown('### Permiso para actuar (Autonomía)')
-permiso_autonomia_slider_val = st.slider('', 0, 100, 50, step=10, label_visibility='collapsed', key='permiso_autonomia_slider')
+permiso_autonomia_slider_val = st.slider('', 0, 100, 50, step=5, label_visibility='collapsed', key='permiso_autonomia_slider')
 st.session_state['Permiso para actuar (Autonomía)'] = permiso_autonomia_slider_val
 cols = st.columns(5)
 with cols[0]:
@@ -18,7 +18,7 @@ with cols[4]:
     st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Funciona mejor con total libertad para decidir y ejecutar.</div>''', unsafe_allow_html=True)
 
 st.markdown('### Necesidad de consideración personal (Respeto)')
-consideracion_respecto_slider_val = st.slider('', 0, 100, 50, step=10, label_visibility='collapsed', key='consideracion_respecto_slider')
+consideracion_respecto_slider_val = st.slider('', 0, 100, 50, step=5, label_visibility='collapsed', key='consideracion_respecto_slider')
 st.session_state['Necesidad de consideración personal (Respeto)'] = consideracion_respecto_slider_val
 cols = st.columns(5)
 with cols[0]:

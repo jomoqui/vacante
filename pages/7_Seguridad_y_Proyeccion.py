@@ -3,7 +3,7 @@ import streamlit as st
 st.title('7. Seguridad y Proyección')
 
 st.markdown('### Preferencia por Estabilidad')
-estabilidad_slider_val = st.slider('', 0, 100, 50, step=10, label_visibility='collapsed', key='estabilidad_slider')
+estabilidad_slider_val = st.slider('', 0, 100, 50, step=5, label_visibility='collapsed', key='estabilidad_slider')
 st.session_state['Preferencia por Estabilidad'] = estabilidad_slider_val
 cols = st.columns(5)
 with cols[0]:
@@ -18,7 +18,7 @@ with cols[4]:
     st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Necesita seguridad laboral a largo plazo.</div>''', unsafe_allow_html=True)
 
 st.markdown('### Ambición de Posición')
-ambicion_slider_val = st.slider('', 0, 100, 50, step=10, label_visibility='collapsed', key='ambicion_slider')
+ambicion_slider_val = st.slider('', 0, 100, 50, step=5, label_visibility='collapsed', key='ambicion_slider')
 st.session_state['Ambición de Posición'] = ambicion_slider_val
 cols = st.columns(5)
 with cols[0]:

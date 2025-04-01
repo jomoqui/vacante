@@ -3,7 +3,7 @@ import streamlit as st
 st.title('2. Presión del Puesto')
 
 st.markdown('### Nivel de Reto del Entorno')
-reto_entorno_slider_val = st.slider('', 0, 100, 50, step=10, label_visibility='collapsed', key='reto_entorno_slider')
+reto_entorno_slider_val = st.slider('', 0, 100, 50, step=5, label_visibility='collapsed', key='reto_entorno_slider')
 st.session_state['Nivel de Reto del Entorno'] = reto_entorno_slider_val
 cols = st.columns(5)
 with cols[0]:
@@ -18,7 +18,7 @@ with cols[4]:
     st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Alta presión constante, con urgencias y demandas simultáneas.</div>''', unsafe_allow_html=True)
 
 st.markdown('### Nivel de Habilidad para Manejar Presión')
-habilidad_presion_slider_val = st.slider('', 0, 100, 50, step=10, label_visibility='collapsed', key='habilidad_presion_slider')
+habilidad_presion_slider_val = st.slider('', 0, 100, 50, step=5, label_visibility='collapsed', key='habilidad_presion_slider')
 st.session_state['Nivel de Habilidad para Manejar Presión'] = habilidad_presion_slider_val
 cols = st.columns(5)
 with cols[0]:

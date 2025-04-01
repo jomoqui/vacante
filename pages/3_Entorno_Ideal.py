@@ -3,7 +3,7 @@ import streamlit as st
 st.title('3. Entorno Ideal')
 
 st.markdown('### Nivel de Compañerismo')
-companerismo_slider_val = st.slider('', 0, 100, 50, step=10, label_visibility='collapsed', key='companerismo_slider')
+companerismo_slider_val = st.slider('', 0, 100, 50, step=5, label_visibility='collapsed', key='companerismo_slider')
 st.session_state['Nivel de Compañerismo'] = companerismo_slider_val
 cols = st.columns(5)
 with cols[0]:
@@ -18,7 +18,7 @@ with cols[4]:
     st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Trabajo diario y constante en equipo, alto nivel de conexión interpersonal.</div>''', unsafe_allow_html=True)
 
 st.markdown('### Nivel de Influencia')
-influencia_slider_val = st.slider('', 0, 100, 50, step=10, label_visibility='collapsed', key='influencia_slider')
+influencia_slider_val = st.slider('', 0, 100, 50, step=5, label_visibility='collapsed', key='influencia_slider')
 st.session_state['Nivel de Influencia'] = influencia_slider_val
 cols = st.columns(5)
 with cols[0]:
@@ -33,7 +33,7 @@ with cols[4]:
     st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Alto impacto personal: sus ideas guían el rumbo del equipo o proyecto.</div>''', unsafe_allow_html=True)
 
 st.markdown('### Nivel de Reconocimiento')
-reconocimiento_slider_val = st.slider('', 0, 100, 50, step=10, label_visibility='collapsed', key='reconocimiento_slider')
+reconocimiento_slider_val = st.slider('', 0, 100, 50, step=5, label_visibility='collapsed', key='reconocimiento_slider')
 st.session_state['Nivel de Reconocimiento'] = reconocimiento_slider_val
 cols = st.columns(5)
 with cols[0]:

@@ -1,35 +1,33 @@
 import streamlit as st
-import numpy as np
 
-st.title("6. Salario y Tiempo")
+st.title('6. Salario y Tiempo')
 
-def obtener_desc(diccionario, valor):
-    keys = np.array(list(diccionario.keys()))
-    closest = keys[np.abs(keys - valor).argmin()]
-    return diccionario[closest]
+st.markdown('### Preferencia Salarial')
+preferencia_salarial_slider_val = st.slider('', 0, 100, 50, step=25, label_visibility='collapsed', key='preferencia_salarial_slider')
+st.session_state['Preferencia Salarial'] = preferencia_salarial_slider_val
+cols = st.columns(5)
+with cols[0]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">El salario no es una prioridad, valora más otros factores.</div>''', unsafe_allow_html=True)
+with cols[1]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Acepta una compensación justa sin expectativas elevadas.</div>''', unsafe_allow_html=True)
+with cols[2]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Busca un salario competitivo y razonable.</div>''', unsafe_allow_html=True)
+with cols[3]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Tiene altas expectativas salariales.</div>''', unsafe_allow_html=True)
+with cols[4]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">El salario es clave, espera una retribución alta y constante.</div>''', unsafe_allow_html=True)
 
-descripciones = {
-    'Preferencia Salarial': {
-        0: "El salario no es una prioridad, valora más otros factores.",
-        25: "Acepta una compensación justa sin expectativas elevadas.",
-        50: "Busca un salario competitivo y razonable.",
-        75: "Tiene altas expectativas salariales.",
-        100: "El salario es clave, espera una retribución alta y constante.",
-    },
-    'Gestión del Tiempo': {
-        0: "Necesita alta flexibilidad y tiempo personal.",
-        25: "Prefiere jornadas controladas y tiempo libre.",
-        50: "Equilibra carga laboral y flexibilidad.",
-        75: "Tolera jornadas largas si hay organización.",
-        100: "Está dispuesto a dedicar muchas horas si el rol lo requiere.",
-    },
-}
-
-preferencia_salarial_slider_value = st.slider('Preferencia Salarial', 0, 100, 50, key='preferencia_salarial_slider')
-st.markdown(f"**{obtener_desc(descripciones['Preferencia Salarial'], preferencia_salarial_slider_value)}**")
-st.session_state['Preferencia Salarial'] = preferencia_salarial_slider_value
-
-gestion_tiempo_slider_value = st.slider('Gestión del Tiempo', 0, 100, 50, key='gestion_tiempo_slider')
-st.markdown(f"**{obtener_desc(descripciones['Gestión del Tiempo'], gestion_tiempo_slider_value)}**")
-st.session_state['Gestión del Tiempo'] = gestion_tiempo_slider_value
-
+st.markdown('### Gestión del Tiempo')
+gestion_tiempo_slider_val = st.slider('', 0, 100, 50, step=25, label_visibility='collapsed', key='gestion_tiempo_slider')
+st.session_state['Gestión del Tiempo'] = gestion_tiempo_slider_val
+cols = st.columns(5)
+with cols[0]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Necesita alta flexibilidad y tiempo personal.</div>''', unsafe_allow_html=True)
+with cols[1]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Prefiere jornadas controladas y tiempo libre.</div>''', unsafe_allow_html=True)
+with cols[2]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Equilibra carga laboral y flexibilidad.</div>''', unsafe_allow_html=True)
+with cols[3]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Tolera jornadas largas si hay organización.</div>''', unsafe_allow_html=True)
+with cols[4]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Está dispuesto a dedicar muchas horas si el rol lo requiere.</div>''', unsafe_allow_html=True)

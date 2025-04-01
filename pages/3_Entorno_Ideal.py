@@ -1,45 +1,49 @@
 import streamlit as st
-import numpy as np
 
-st.title("3. Entorno Ideal")
+st.title('3. Entorno Ideal')
 
-def obtener_desc(diccionario, valor):
-    keys = np.array(list(diccionario.keys()))
-    closest = keys[np.abs(keys - valor).argmin()]
-    return diccionario[closest]
+st.markdown('### Nivel de Compañerismo')
+companerismo_slider_val = st.slider('', 0, 100, 50, step=25, label_visibility='collapsed', key='companerismo_slider')
+st.session_state['Nivel de Compañerismo'] = companerismo_slider_val
+cols = st.columns(5)
+with cols[0]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Trabajo completamente individual, sin interacción con otros.</div>''', unsafe_allow_html=True)
+with cols[1]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Interacciones puntuales sin necesidad de colaboración.</div>''', unsafe_allow_html=True)
+with cols[2]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Equilibrio entre trabajo autónomo y colaborativo.</div>''', unsafe_allow_html=True)
+with cols[3]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Participación activa en un equipo con coordinación frecuente.</div>''', unsafe_allow_html=True)
+with cols[4]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Trabajo diario y constante en equipo, alto nivel de conexión interpersonal.</div>''', unsafe_allow_html=True)
 
-descripciones = {
-    'Nivel de Compañerismo': {
-        0: "Trabajo completamente individual, sin interacción con otros.",
-        25: "Interacciones puntuales sin necesidad de colaboración.",
-        50: "Equilibrio entre trabajo autónomo y colaborativo.",
-        75: "Participación activa en un equipo con coordinación frecuente.",
-        100: "Trabajo diario y constante en equipo, alto nivel de conexión interpersonal.",
-    },
-    'Nivel de Influencia': {
-        0: "Las ideas propias rara vez se consideran.",
-        25: "Se escuchan aportaciones, pero el impacto es limitado.",
-        50: "Las contribuciones son valoradas de forma equilibrada.",
-        75: "Se espera que influya activamente en decisiones del equipo.",
-        100: "Alto impacto personal: sus ideas guían el rumbo del equipo o proyecto.",
-    },
-    'Nivel de Reconocimiento': {
-        0: "No busca ni espera reconocimiento externo.",
-        25: "Valora reconocimiento puntual, pero no depende de él.",
-        50: "Equilibra autovaloración con feedback externo.",
-        75: "Se estimula al recibir reconocimiento frecuente.",
-        100: "Necesita reconocimiento constante como fuente principal de motivación.",
-    },
-}
+st.markdown('### Nivel de Influencia')
+influencia_slider_val = st.slider('', 0, 100, 50, step=25, label_visibility='collapsed', key='influencia_slider')
+st.session_state['Nivel de Influencia'] = influencia_slider_val
+cols = st.columns(5)
+with cols[0]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Las ideas propias rara vez se consideran.</div>''', unsafe_allow_html=True)
+with cols[1]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Se escuchan aportaciones, pero el impacto es limitado.</div>''', unsafe_allow_html=True)
+with cols[2]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Las contribuciones son valoradas de forma equilibrada.</div>''', unsafe_allow_html=True)
+with cols[3]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Se espera que influya activamente en decisiones del equipo.</div>''', unsafe_allow_html=True)
+with cols[4]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Alto impacto personal: sus ideas guían el rumbo del equipo o proyecto.</div>''', unsafe_allow_html=True)
 
-companerismo_slider_value = st.slider('Nivel de Compañerismo', 0, 100, 50, key='companerismo_slider')
-st.markdown(f"**{obtener_desc(descripciones['Nivel de Compañerismo'], companerismo_slider_value)}**")
-st.session_state['Nivel de Compañerismo'] = companerismo_slider_value
+st.markdown('### Nivel de Reconocimiento')
+reconocimiento_slider_val = st.slider('', 0, 100, 50, step=25, label_visibility='collapsed', key='reconocimiento_slider')
+st.session_state['Nivel de Reconocimiento'] = reconocimiento_slider_val
+cols = st.columns(5)
+with cols[0]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">No busca ni espera reconocimiento externo.</div>''', unsafe_allow_html=True)
+with cols[1]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Valora reconocimiento puntual, pero no depende de él.</div>''', unsafe_allow_html=True)
+with cols[2]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Equilibra autovaloración con feedback externo.</div>''', unsafe_allow_html=True)
+with cols[3]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Se estimula al recibir reconocimiento frecuente.</div>''', unsafe_allow_html=True)
+with cols[4]:
+    st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Necesita reconocimiento constante como fuente principal de motivación.</div>''', unsafe_allow_html=True)
 
-influencia_slider_value = st.slider('Nivel de Influencia', 0, 100, 50, key='influencia_slider')
-st.markdown(f"**{obtener_desc(descripciones['Nivel de Influencia'], influencia_slider_value)}**")
-st.session_state['Nivel de Influencia'] = influencia_slider_value
-
-reconocimiento_slider_value = st.slider('Nivel de Reconocimiento', 0, 100, 50, key='reconocimiento_slider')
-st.markdown(f"**{obtener_desc(descripciones['Nivel de Reconocimiento'], reconocimiento_slider_value)}**")
-st.session_state['Nivel de Reconocimiento'] = reconocimiento_slider_value

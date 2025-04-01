@@ -25,11 +25,11 @@ descripciones = {
     },
 }
 
-# Sliders y descripciones
-value = st.slider('Preferencia Salarial', 0, 100, 50, key='Preferencia Salarial')
-st.markdown(f"**{obtener_desc(descripciones['Preferencia Salarial'], value)}**")
-st.session_state['Preferencia Salarial'] = value
+preferencia_salarial_slider_value = st.slider('Preferencia Salarial', 0, 100, 50, key='preferencia_salarial_slider')
+st.markdown(f"**{obtener_desc(descripciones['Preferencia Salarial'], preferencia_salarial_slider_value)}**")
+st.session_state['Preferencia Salarial'] = preferencia_salarial_slider_value
 
-value = st.slider('Gestión del Tiempo', 0, 100, 50, key='Gestión del Tiempo')
-st.markdown(f"**{obtener_desc(descripciones['Gestión del Tiempo'], value)}**")
-st.session_state['Gestión del Tiempo'] = value
+gestion_tiempo_slider_value = st.slider('Gestión del Tiempo', 0, 100, 50, key='gestion_tiempo_slider')
+st.markdown(f"**{obtener_desc(descripciones['Gestión del Tiempo'], gestion_tiempo_slider_value)}**")
+st.session_state['Gestión del Tiempo'] = gestion_tiempo_slider_value
+

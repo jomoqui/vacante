@@ -25,11 +25,10 @@ descripciones = {
     },
 }
 
-# Sliders y descripciones
-value = st.slider('Preferencia por Estabilidad', 0, 100, 50, key='Preferencia por Estabilidad')
-st.markdown(f"**{obtener_desc(descripciones['Preferencia por Estabilidad'], value)}**")
-st.session_state['Preferencia por Estabilidad'] = value
+estabilidad_slider_value = st.slider('Preferencia por Estabilidad', 0, 100, 50, key='estabilidad_slider')
+st.markdown(f"**{obtener_desc(descripciones['Preferencia por Estabilidad'], estabilidad_slider_value)}**")
+st.session_state['Preferencia por Estabilidad'] = estabilidad_slider_value
 
-value = st.slider('Ambición de Posición', 0, 100, 50, key='Ambición de Posición')
-st.markdown(f"**{obtener_desc(descripciones['Ambición de Posición'], value)}**")
-st.session_state['Ambición de Posición'] = value
+ambicion_slider_value = st.slider('Ambición de Posición', 0, 100, 50, key='ambicion_slider')
+st.markdown(f"**{obtener_desc(descripciones['Ambición de Posición'], ambicion_slider_value)}**")
+st.session_state['Ambición de Posición'] = ambicion_slider_value

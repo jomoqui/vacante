@@ -25,11 +25,11 @@ descripciones = {
     },
 }
 
-# Sliders y descripciones
-value = st.slider('Permiso para actuar (Autonomía)', 0, 100, 50, key='Permiso para actuar (Autonomía)')
-st.markdown(f"**{obtener_desc(descripciones['Permiso para actuar (Autonomía)'], value)}**")
-st.session_state['Permiso para actuar (Autonomía)'] = value
+permiso_autonomia_slider_value = st.slider('Permiso para actuar (Autonomía)', 0, 100, 50, key='permiso_autonomia_slider')
+st.markdown(f"**{obtener_desc(descripciones['Permiso para actuar (Autonomía)'], permiso_autonomia_slider_value)}**")
+st.session_state['Permiso para actuar (Autonomía)'] = permiso_autonomia_slider_value
 
-value = st.slider('Necesidad de consideración personal (Respeto)', 0, 100, 50, key='Necesidad de consideración personal (Respeto)')
-st.markdown(f"**{obtener_desc(descripciones['Necesidad de consideración personal (Respeto)'], value)}**")
-st.session_state['Necesidad de consideración personal (Respeto)'] = value
+consideracion_respecto_slider_value = st.slider('Necesidad de consideración personal (Respeto)', 0, 100, 50, key='consideracion_respecto_slider')
+st.markdown(f"**{obtener_desc(descripciones['Necesidad de consideración personal (Respeto)'], consideracion_respecto_slider_value)}**")
+st.session_state['Necesidad de consideración personal (Respeto)'] = consideracion_respecto_slider_value
+

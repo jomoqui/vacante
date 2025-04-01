@@ -4,33 +4,36 @@ import plotly.graph_objects as go
 st.title("Resumen Interactivo de tu Perfil")
 
 # Recolectar los valores guardados
-puntos = {
-    'Compañerismo': st.session_state.get('Nivel de Compañerismo', 50),
-    'Influencia': st.session_state.get('Nivel de Influencia', 50),
-    'Reconocimiento': st.session_state.get('Nivel de Reconocimiento', 50)
-    # Aquí se agregarán los demás parámetros
-}
+valores = {}
+for key in st.session_state:
+    valores[key] = st.session_state[key]
 
-fig = go.Figure()
+if len(valores) >= 3:
+    # Selección arbitraria de 3 dimensiones para visualización 3D
+    keys = list(valores.keys())
+    x = valores[keys[0]]
+    y = valores[keys[1]]
+    z = valores[keys[2]]
 
-fig.add_trace(go.Scatter3d(
-    x=[puntos['Compañerismo']],
-    y=[puntos['Influencia']],
-    z=[puntos['Reconocimiento']],
-    mode='markers+text',
-    marker=dict(size=10, color='orange'),
-    text=["Tu Perfil"],
-    name="Tu Perfil"
-))
+    fig = go.Figure()
+    fig.add_trace(go.Scatter3d(
+        x=[x], y=[y], z=[z],
+        mode='markers+text',
+        marker=dict(size=10, color='orange'),
+        text=["Tu Perfil"],
+        name="Tu Perfil"
+    ))
 
-fig.update_layout(
-    scene=dict(
-        xaxis_title="Compañerismo",
-        yaxis_title="Influencia",
-        zaxis_title="Reconocimiento"
-    ),
-    width=800,
-    height=600
-)
+    fig.update_layout(
+        scene=dict(
+            xaxis_title=keys[0],
+            yaxis_title=keys[1],
+            zaxis_title=keys[2]
+        ),
+        width=800,
+        height=600
+    )
 
-st.plotly_chart(fig)
+    st.plotly_chart(fig)
+else:
+    st.warning("Aún no se han completado suficientes secciones para generar el resumen.")

@@ -9,21 +9,21 @@ def obtener_desc(diccionario, valor):
     return diccionario[closest]
 
 descripciones = {
-    'Nivel de Compañerismo': {
+    'companerismo': {
         0: "Trabajo completamente individual, sin interacción con otros.",
         25: "Interacciones puntuales sin necesidad de colaboración.",
         50: "Equilibrio entre trabajo autónomo y colaborativo.",
         75: "Participación activa en un equipo con coordinación frecuente.",
         100: "Trabajo diario y constante en equipo, alto nivel de conexión interpersonal."
     },
-    'Nivel de Influencia': {
+    'influencia': {
         0: "Las ideas propias rara vez se consideran.",
         25: "Se escuchan aportaciones, pero el impacto es limitado.",
         50: "Las contribuciones son valoradas de forma equilibrada.",
         75: "Se espera que influya activamente en decisiones del equipo.",
         100: "Alto impacto personal: sus ideas guían el rumbo del equipo o proyecto."
     },
-    'Nivel de Reconocimiento': {
+    'reconocimiento': {
         0: "No busca ni espera reconocimiento externo.",
         25: "Valora reconocimiento puntual, pero no depende de él.",
         50: "Equilibra autovaloración con feedback externo.",
@@ -32,8 +32,15 @@ descripciones = {
     }
 }
 
-# Sliders y descripciones
-for label in descripciones:
-    value = st.slider(label, 0, 100, 50, key=label)
-    st.markdown(f"**{obtener_desc(descripciones[label], value)}**")
-    st.session_state[label] = value
+# Sliders con claves únicas
+valor_companerismo = st.slider("Nivel de Compañerismo", 0, 100, 50, key="companerismo_slider")
+st.markdown(f"**{obtener_desc(descripciones['companerismo'], valor_companerismo)}**")
+st.session_state["Nivel de Compañerismo"] = valor_companerismo
+
+valor_influencia = st.slider("Nivel de Influencia", 0, 100, 50, key="influencia_slider")
+st.markdown(f"**{obtener_desc(descripciones['influencia'], valor_influencia)}**")
+st.session_state["Nivel de Influencia"] = valor_influencia
+
+valor_reconocimiento = st.slider("Nivel de Reconocimiento", 0, 100, 50, key="reconocimiento_slider")
+st.markdown(f"**{obtener_desc(descripciones['reconocimiento'], valor_reconocimiento)}**")
+st.session_state["Nivel de Reconocimiento"] = valor_reconocimiento

@@ -3,7 +3,7 @@ import streamlit as st
 st.title('1. Tipo de Trabajo')
 
 st.markdown('### Nivel de Reto del Puesto')
-reto_puesto_slider_val = st.slider('', step=10, label_visibility='collapsed', key='reto_puesto_slider')
+reto_puesto_slider_val = st.slider(step=10, label_visibility='collapsed', key='reto_puesto_slider')
 st.session_state['Nivel de Reto del Puesto'] = reto_puesto_slider_val
 cols = st.columns(5)
 with cols[0]:

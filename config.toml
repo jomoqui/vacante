@@ -1,0 +1,7 @@
+[theme]
+base="light"
+primaryColor="#D9680A"               # Naranja (para sliders, botones activos)
+backgroundColor="#FDFAF9"            # Crema (color de fondo principal)
+secondaryBackgroundColor="#CECEC6"   # Gris (fondos de tarjetas, cajas secundarias)
+textColor="#190203"                  # Marrón oscuro (texto)
+font="sans serif"

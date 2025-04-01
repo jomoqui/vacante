@@ -32,3 +32,12 @@ with cols[3]:
 with cols[4]:
     st.markdown(f'''<div style="padding:10px; background:#f9f9f9; border:1px solid #ddd; border-radius:10px; text-align:center;">Nivel experto, habilidades altamente especializadas.</div>''', unsafe_allow_html=True)
 
+# Ocultar los valores extremos del slider
+st.markdown("""
+    <style>
+    .stSlider > div[data-baseweb="slider"] > div > div:nth-child(1),
+    .stSlider > div[data-baseweb="slider"] > div > div:nth-child(3) {
+        display: none;
+    }
+    </style>
+""", unsafe_allow_html=True)

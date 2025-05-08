@@ -10,26 +10,28 @@ def obtener_desc(diccionario, valor):
 
 descripciones = {
     'Preferencia por Estabilidad': {
-        0: "Se siente cómodo con cambios frecuentes o roles temporales.",
-        25: "Tolera cierta inestabilidad si hay aprendizaje.",
-        50: "Busca cierta continuidad sin rigidez.",
-        75: "Valora un entorno estable con proyección.",
-        100: "Necesita seguridad laboral a largo plazo.",
+        0: "Se siente cómodo con cambios constantes o trabajos temporales.",
+        20: "Tolera inestabilidad si hay aprendizaje y novedad.",
+        40: "Prefiere cierta continuidad sin necesidad de permanencia.",
+        60: "Valora estabilidad en un entorno predecible.",
+        80: "Busca una trayectoria estable con opciones a futuro.",
+        100: "Necesita seguridad laboral duradera y entorno previsible.",
     },
     'Ambición de Posición': {
-        0: "No le interesa destacar ni subir jerárquicamente.",
-        25: "Está cómodo en roles de soporte o ejecución.",
-        50: "Le interesa avanzar si hay oportunidades claras.",
-        75: "Tiene una visión clara de crecimiento.",
-        100: "Aspira a cargos de liderazgo o alta visibilidad.",
+        0: "No le interesa ascender ni destacar jerárquicamente.",
+        20: "Prefiere roles de soporte con baja visibilidad.",
+        40: "Se interesa por crecer si hay condiciones claras.",
+        60: "Busca progresar y ganar reconocimiento.",
+        80: "Tiene metas claras de liderazgo o proyección.",
+        100: "Aspira a posiciones de alto liderazgo o gran visibilidad.",
     },
 }
 
-# Sliders y descripciones
-value = st.slider('Preferencia por Estabilidad', 0, 100, 50, key='Preferencia por Estabilidad')
-st.markdown(f"**{obtener_desc(descripciones['Preferencia por Estabilidad'], value)}**")
-st.session_state['Preferencia por Estabilidad'] = value
+# Sliders con paso de 20 para 6 niveles
+value_estabilidad = st.slider('Preferencia por Estabilidad', 0, 100, 40, step=20, key='Preferencia por Estabilidad')
+st.markdown(f"**{obtener_desc(descripciones['Preferencia por Estabilidad'], value_estabilidad)}**")
+st.session_state['Preferencia por Estabilidad'] = value_estabilidad
 
-value = st.slider('Ambición de Posición', 0, 100, 50, key='Ambición de Posición')
-st.markdown(f"**{obtener_desc(descripciones['Ambición de Posición'], value)}**")
-st.session_state['Ambición de Posición'] = value
+value_ambicion = st.slider('Ambición de Posición', 0, 100, 40, step=20, key='Ambición de Posición')
+st.markdown(f"**{obtener_desc(descripciones['Ambición de Posición'], value_ambicion)}**")
+st.session_state['Ambición de Posición'] = value_ambicion

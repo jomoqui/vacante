@@ -11,25 +11,27 @@ def obtener_desc(diccionario, valor):
 descripciones = {
     'Nivel de Reto del Puesto': {
         0: "Tareas predecibles, sin necesidad de adaptación.",
-        25: "Requiere algo de iniciativa en situaciones conocidas.",
-        50: "Retos equilibrados con recursos disponibles.",
-        75: "Entorno exigente, requiere adaptación frecuente.",
-        100: "Desafíos constantes, situaciones nuevas y complejas.",
+        20: "Requiere algo de iniciativa en contextos conocidos.",
+        40: "Retos moderados con recursos disponibles.",
+        60: "Requiere adaptarse a cambios frecuentes.",
+        80: "Entorno muy exigente, con presión constante.",
+        100: "Desafíos constantes en situaciones nuevas y complejas.",
     },
     'Nivel de Habilidad Requerida': {
         0: "Puede ser desempeñado con habilidades básicas.",
-        25: "Requiere conocimientos o experiencia general.",
-        50: "Se necesita formación técnica específica.",
-        75: "Requiere experiencia sólida y competencias avanzadas.",
-        100: "Nivel experto, habilidades altamente especializadas.",
+        20: "Requiere conocimientos generales o experiencia previa.",
+        40: "Necesita formación técnica o experiencia específica.",
+        60: "Competencias avanzadas y experiencia sólida.",
+        80: "Requiere dominio especializado en el área.",
+        100: "Nivel experto con habilidades altamente especializadas.",
     },
 }
 
-# Sliders y descripciones
-value = st.slider('Nivel de Reto del Puesto', 0, 100, 50, key='Nivel de Reto del Puesto')
-st.markdown(f"**{obtener_desc(descripciones['Nivel de Reto del Puesto'], value)}**")
-st.session_state['Nivel de Reto del Puesto'] = value
+# Sliders con step=20 para forzar los 6 niveles
+value_reto = st.slider('Nivel de Reto del Puesto', 0, 100, 40, step=20, key='Nivel de Reto del Puesto')
+st.markdown(f"**{obtener_desc(descripciones['Nivel de Reto del Puesto'], value_reto)}**")
+st.session_state['Nivel de Reto del Puesto'] = value_reto
 
-value = st.slider('Nivel de Habilidad Requerida', 0, 100, 50, key='Nivel de Habilidad Requerida')
-st.markdown(f"**{obtener_desc(descripciones['Nivel de Habilidad Requerida'], value)}**")
-st.session_state['Nivel de Habilidad Requerida'] = value
+value_habilidad = st.slider('Nivel de Habilidad Requerida', 0, 100, 40, step=20, key='Nivel de Habilidad Requerida')
+st.markdown(f"**{obtener_desc(descripciones['Nivel de Habilidad Requerida'], value_habilidad)}**")
+st.session_state['Nivel de Habilidad Requerida'] = value_habilidad

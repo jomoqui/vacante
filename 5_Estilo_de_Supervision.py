@@ -10,26 +10,28 @@ def obtener_desc(diccionario, valor):
 
 descripciones = {
     'Permiso para actuar (Autonomía)': {
-        0: "Necesita instrucciones claras y seguimiento constante.",
-        25: "Prefiere que le indiquen el camino, con algo de autonomía.",
-        50: "Equilibrio entre guía del líder y libertad personal.",
-        75: "Le gusta tener iniciativa con poco control externo.",
-        100: "Funciona mejor con total libertad para decidir y ejecutar.",
+        0: "Necesita instrucciones claras y supervisión constante.",
+        20: "Prefiere orientación precisa antes de actuar.",
+        40: "Trabaja bien con cierta libertad bajo una estructura definida.",
+        60: "Se siente cómodo tomando decisiones propias con poco control.",
+        80: "Busca independencia para decidir y actuar.",
+        100: "Prefiere total libertad para ejecutar con criterio propio.",
     },
     'Necesidad de consideración personal (Respeto)': {
-        0: "No necesita validación, se motiva por su propio criterio.",
-        25: "Valora cierto reconocimiento del líder, sin dependencia.",
-        50: "Le gusta sentirse valorado sin necesidad constante.",
-        75: "Agradece atención frecuente y feedback personalizado.",
-        100: "Necesita sentirse reconocido y acompañado de forma continua.",
+        0: "Se guía por su propio criterio, sin necesidad de validación.",
+        20: "Aprecia algo de reconocimiento ocasional del líder.",
+        40: "Valora sentirse tenido en cuenta sin necesidad constante.",
+        60: "Agradece atención frecuente y comunicación personalizada.",
+        80: "Requiere presencia cercana del líder y apoyo emocional.",
+        100: "Necesita sentirse constantemente acompañado y valorado.",
     },
 }
 
-# Sliders y descripciones
-value = st.slider('Permiso para actuar (Autonomía)', 0, 100, 50, key='Permiso para actuar (Autonomía)')
-st.markdown(f"**{obtener_desc(descripciones['Permiso para actuar (Autonomía)'], value)}**")
-st.session_state['Permiso para actuar (Autonomía)'] = value
+# Sliders con valores en múltiplos de 20
+value_autonomia = st.slider('Permiso para actuar (Autonomía)', 0, 100, 40, step=20, key='Permiso para actuar (Autonomía)')
+st.markdown(f"**{obtener_desc(descripciones['Permiso para actuar (Autonomía)'], value_autonomia)}**")
+st.session_state['Permiso para actuar (Autonomía)'] = value_autonomia
 
-value = st.slider('Necesidad de consideración personal (Respeto)', 0, 100, 50, key='Necesidad de consideración personal (Respeto)')
-st.markdown(f"**{obtener_desc(descripciones['Necesidad de consideración personal (Respeto)'], value)}**")
-st.session_state['Necesidad de consideración personal (Respeto)'] = value
+value_respeto = st.slider('Necesidad de consideración personal (Respeto)', 0, 100, 40, step=20, key='Necesidad de consideración personal (Respeto)')
+st.markdown(f"**{obtener_desc(descripciones['Necesidad de consideración personal (Respeto)'], value_respeto)}**")
+st.session_state['Necesidad de consideración personal (Respeto)'] = value_respeto

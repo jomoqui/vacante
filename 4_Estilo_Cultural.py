@@ -10,25 +10,31 @@ def obtener_desc(diccionario, valor):
 
 descripciones = {
     'Estabilidad vs. Cambio': {
-        0: "Entorno muy estructurado, reglas claras, cambios mínimos.",
-        25: "Predomina la estabilidad con pequeños ajustes puntuales.",
-        50: "Equilibrio entre procesos definidos e innovación.",
-        75: "Entorno dinámico, con cambios frecuentes y adaptativos.",
-        100: "Cultura en constante evolución, se espera agilidad y transformación continua.",
+        0: "Entorno muy estructurado, con reglas claras y cambios mínimos.",
+        20: "Estabilidad predominante con ajustes muy puntuales.",
+        40: "Procesos definidos con apertura a mejoras ocasionales.",
+        60: "Entorno ágil, con cambios frecuentes y gestionados.",
+        80: "Cultura dinámica en evolución constante.",
+        100: "Transformación continua, alta adaptabilidad y agilidad.",
     },
     'Independencia vs. Interdependencia': {
-        0: "Cultura orientada al logro individual y autonomía total.",
-        25: "Trabajo autónomo con interacción ocasional.",
-        50: "Balance entre responsabilidad personal y cooperación.",
-        75: "Se espera coordinación y construcción conjunta de resultados.",
-        100: "Alto nivel de interdependencia, el éxito depende del grupo y la colaboración constante.",
+        0: "Cultura centrada en la autonomía y logros individuales.",
+        20: "Mayoritariamente autónoma, con colaboración limitada.",
+        40: "Responsabilidad personal combinada con algo de cooperación.",
+        60: "Colaboración frecuente y metas compartidas.",
+        80: "Trabajo coordinado y alineado en equipo.",
+        100: "Éxito colectivo mediante colaboración constante y fuerte interdependencia.",
     },
 }
 
-# Sliders y descripciones
-value = st.slider('Estabilidad vs. Cambio', 0, 100, 50, key='Estabilidad vs. Cambio')
-st.markdown(f"**{obtener_desc(descripciones['Estabilidad vs. Cambio'], value)}**")
-st.session_state['Estabilidad vs. Cambio'] = value
+# Sliders con step=20 para 6 niveles
+value_estabilidad = st.slider('Estabilidad vs. Cambio', 0, 100, 40, step=20, key='Estabilidad vs. Cambio')
+st.markdown(f"**{obtener_desc(descripciones['Estabilidad vs. Cambio'], value_estabilidad)}**")
+st.session_state['Estabilidad vs. Cambio'] = value_estabilidad
+
+value_interdependencia = st.slider('Independencia vs. Interdependencia', 0, 100, 40, step=20, key='Independencia vs. Interdependencia')
+st.markdown(f"**{obtener_desc(descripciones['Independencia vs. Interdependencia'], value_interdependencia)}**")
+st.session_state['Independencia vs. Interdependencia'] = value_interdependencia
 
 value = st.slider('Independencia vs. Interdependencia', 0, 100, 50, key='Independencia vs. Interdependencia')
 st.markdown(f"**{obtener_desc(descripciones['Independencia vs. Interdependencia'], value)}**")

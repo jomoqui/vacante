@@ -11,25 +11,27 @@ def obtener_desc(diccionario, valor):
 descripciones = {
     'Nivel de Reto del Entorno': {
         0: "Entorno muy estable, sin imprevistos.",
-        25: "Cambios puntuales y bajo nivel de exigencia externa.",
-        50: "Retos situacionales manejables, sin desbordar.",
-        75: "Ritmo exigente, con situaciones de presión frecuentes.",
-        100: "Alta presión constante, con urgencias y demandas simultáneas.",
+        20: "Cambios puntuales con bajo nivel de presión.",
+        40: "Exigencia moderada, con retos ocasionales.",
+        60: "Frecuencia creciente de presión y cambios.",
+        80: "Entorno dinámico con exigencias constantes.",
+        100: "Alta presión continua, con urgencias simultáneas.",
     },
     'Nivel de Habilidad para Manejar Presión': {
-        0: "Bajo control frente a la presión, necesita condiciones estables.",
-        25: "Tolera cierta presión con apoyo y estructura.",
-        50: "Se adapta con flexibilidad a entornos moderadamente exigentes.",
-        75: "Maneja con eficacia entornos de alta demanda.",
-        100: "Rinde al máximo bajo presión intensa y continua.",
+        0: "Necesita condiciones muy estables para rendir.",
+        20: "Tolera cierta presión con apoyo y estructura.",
+        40: "Se adapta en entornos con presión moderada.",
+        60: "Maneja eficazmente demandas exigentes.",
+        80: "Rinde bien en entornos de alta presión.",
+        100: "Rinde al máximo bajo presión intensa y constante.",
     },
 }
 
-# Sliders y descripciones
-value = st.slider('Nivel de Reto del Entorno', 0, 100, 50, key='Nivel de Reto del Entorno')
-st.markdown(f"**{obtener_desc(descripciones['Nivel de Reto del Entorno'], value)}**")
-st.session_state['Nivel de Reto del Entorno'] = value
+# Sliders con step de 20
+value_reto = st.slider('Nivel de Reto del Entorno', 0, 100, 40, step=20, key='Nivel de Reto del Entorno')
+st.markdown(f"**{obtener_desc(descripciones['Nivel de Reto del Entorno'], value_reto)}**")
+st.session_state['Nivel de Reto del Entorno'] = value_reto
 
-value = st.slider('Nivel de Habilidad para Manejar Presión', 0, 100, 50, key='Nivel de Habilidad para Manejar Presión')
-st.markdown(f"**{obtener_desc(descripciones['Nivel de Habilidad para Manejar Presión'], value)}**")
-st.session_state['Nivel de Habilidad para Manejar Presión'] = value
+value_habilidad = st.slider('Nivel de Habilidad para Manejar Presión', 0, 100, 40, step=20, key='Nivel de Habilidad para Manejar Presión')
+st.markdown(f"**{obtener_desc(descripciones['Nivel de Habilidad para Manejar Presión'], value_habilidad)}**")
+st.session_state['Nivel de Habilidad para Manejar Presión'] = value_habilidad
